@@ -5,6 +5,7 @@ import {
   TextInput,
   StyleSheet,
   Button,
+  ScrollView,
 } from 'react-native'
 
 const Details = ({ navigation, route }) => {
@@ -22,29 +23,32 @@ const Details = ({ navigation, route }) => {
 
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Reminder Details</Text>
-      <Text style={styles.caption}>Title</Text>
-      <TextInput
-        style={styles.input}
-        value={title}
-        onChangeText={setTitle}
-        placeholder="Awsome title"
-      />
-      <Text style={styles.caption}>Notes</Text>
-      <TextInput
-        style={styles.input}
-        value={notes}
-        onChangeText={setNotes}
-        multiline
-        numberOfLines={10}
-        placeholder="Write something here..."
-      />
+    <ScrollView style={styles.container}>
+      <View style={styles.form}>
+        <Text style={styles.title}>Reminder Details</Text>
+        <Text style={styles.caption}>Title</Text>
+        <TextInput
+          style={styles.input}
+          value={title}
+          onChangeText={setTitle}
+          placeholder="Awsome title"
+        />
+        <Text style={styles.caption}>Notes</Text>
+        <TextInput
+          style={styles.textArea}
+          multiline
+          value={notes}
+          onChangeText={setNotes}
+          textAlignVertical="top"
+          numberOfLines={5}
+          placeholder="Write something here..."
+        />
+      </View>
       <Button
         title='Save'
         onPress={handleSave}
       />
-    </View>
+    </ScrollView>
   )
 }
 
@@ -52,7 +56,11 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: 16,
+    height: '100%',
+  },
+  form: {
+    padding: 12,
+    flex: 1,
   },
   title: {
     fontSize: 32,
@@ -69,6 +77,14 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
+    margin: 12,
+    marginTop: 0,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.05)',
+    borderRadius: 4,
+    padding: 10,
+  },
+  textArea: {
     margin: 12,
     marginTop: 0,
     borderWidth: 1,
