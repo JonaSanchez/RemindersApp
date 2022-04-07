@@ -13,3 +13,8 @@ New React Native Project with basic components and navigation
 Added a list of reminders with add/delete functions. Added async storage for persistence
 ### Home:
 ![image](https://user-images.githubusercontent.com/32472902/162029090-2051ca85-bbad-4e0c-8d44-312e2f2e5c7f.png)
+
+## Session 3:
+Added 'Details' view
+### Details
+![image](https://user-images.githubusercontent.com/32472902/162267203-eecd2be0-4340-4815-9b1f-9a2c0400a945.png)
