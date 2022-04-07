@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Home from './views/Home';
 import Profile from './views/Profile';
+import Details from './views/Details';
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +22,11 @@ const App = () => {
           options={{ title: 'Home screen' }}
         />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{ title: 'Reminder Details' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

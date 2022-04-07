@@ -50,6 +50,22 @@ const Home = ({ navigation, name = 'Jona' }) => {
     storeData(newReminders)
   }
 
+  const saveReminder = (reminder) => {
+    const newReminders = reminders.map(r => {
+      if (r.id === reminder.id) { return reminder }
+      else return r
+    })
+    setReminders(newReminders)
+    storeData(newReminders)
+  }
+
+  const openReminder = (reminder) => {
+    navigation.navigate('Details', {
+      reminder: reminder,
+      saveReminder: saveReminder,
+    })
+  }
+
   const storeData = async (value) => {
     try {
       const jsonValue = JSON.stringify(value)
@@ -87,7 +103,11 @@ const Home = ({ navigation, name = 'Jona' }) => {
       <View style={styles.listContainer}>
         <FlatList
           data={reminders}
-          renderItem={({ item }) => <ListItem reminder={item} deleteReminder={deleteReminder} />}
+          renderItem={({ item }) => <ListItem
+            reminder={item}
+            deleteReminder={deleteReminder}
+            openDetails={openReminder}
+          />}
         />
       </View>
     </View>

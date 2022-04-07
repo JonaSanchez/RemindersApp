@@ -6,19 +6,22 @@ import {
   TextInput,
   View,
   Button,
+  TouchableOpacity,
 } from 'react-native';
 
 
-const ListItem = ({ reminder, deleteReminder }) => {
+const ListItem = ({ reminder, deleteReminder, openDetails }) => {
   return (
-    <View style={styles.item}>
-      <Text style={styles.itemText}>{reminder.id} - {reminder.title}</Text>
-      <Button
-        title='Delete'
-        color='#8A0808'
-        onPress={() => deleteReminder(reminder)}
-      />
-    </View>
+    <TouchableOpacity onPress={() => openDetails(reminder)}>
+      <View style={styles.item}>
+        <Text style={styles.itemText}>{reminder.id} - {reminder.title}</Text>
+        <Button
+          title='Delete'
+          color='#8A0808'
+          onPress={() => deleteReminder(reminder)}
+        />
+      </View>
+    </TouchableOpacity>
   );
 };
 
